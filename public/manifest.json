@@ -32,6 +32,7 @@
 
     "web_accessible_resources": [
         "js/edropper2.js",
+        "js/ColorTranslator.js",
         "inject/anchor-cursor-default.css",
         "inject/anchor-cursor-crosshair.css",
         "inject/edropper2.css"

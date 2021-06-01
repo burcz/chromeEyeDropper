@@ -13,6 +13,7 @@ module.exports = {
         background: path.join(__dirname, srcDir + 'background'),
         edropper2: path.join(__dirname, srcDir + 'edropper2'),
         debug_tab: path.join(__dirname, srcDir + 'debug_tab'),
+		ColorTranslator: path.join(__dirname, srcDir + 'ColorTranslator')
     },
     output: {
         path: path.join(__dirname, '../dist/js'),
@@ -41,7 +42,7 @@ module.exports = {
         // exclude locale files in moment
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new CopyPlugin({
-            patterns: [{ from: '.', to: '../', context: 'public/' }],
+			patterns: [{ from: '.', to: '../', context: 'public/' },{ from: './src/colorSchemes/autumn.json', to: '../js/colorSchemes/autumn.json' }],
         }),
 
         new ReplaceInFileWebpackPlugin([

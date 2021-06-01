@@ -1,0 +1,42 @@
+[
+	{
+		"rgb": {
+			"r": 253,
+			"g": 249,
+			"b": 214
+		},
+		"name": "lightgoldenrodyellow"
+	},
+	{
+		"rgb": {
+			"r": 192,
+			"g": 94,
+			"b": 47
+		},
+		"name": "chocolate"
+	},
+	{
+		"rgb": {
+			"r": 188,
+			"g": 157,
+			"b": 110
+		},
+		"name": "darkkhaki"
+	},
+	{
+		"rgb": {
+			"r": 110,
+			"g": 141,
+			"b": 73
+		},
+		"name": "olivedrab"
+	},
+	{
+		"rgb": {
+			"r": 150,
+			"g": 190,
+			"b": 163
+		},
+		"name": "darkseagreen"
+	}
+]

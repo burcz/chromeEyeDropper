@@ -1,5 +1,6 @@
 import { createNode } from './helpers'
 import Color from './Color.d'
+import ColorTranslator from './ColorTranslator';
 
 class Overlay {
     el: HTMLElement
@@ -17,6 +18,7 @@ class Overlay {
         enableTooltip: boolean
         cursor: string
     }) {
+
         console.log(
             `overlay: Enabling overlay ${args.width}x${args.height} with cursor ${args.cursor}`,
         )
@@ -176,9 +178,12 @@ class ToolTip extends Tool {
 class ToolBox extends Tool {
     elColor: HTMLElement
     elText: HTMLElement
+	colorTranslator: ColorTranslator;
 
     constructor() {
         super()
+
+		this.colorTranslator = new ColorTranslator();
 
         this.el = createNode('div', {
             id: 'color-toolbox',
@@ -231,13 +236,21 @@ class ToolBox extends Tool {
     hookColor(args: { color: any; x: number; y: number; top: number; left: number }) {
         super.hookColor(args)
 
-        let debug_info = DEV_MODE
-            ? `<div style="font-size: 0.8em">coord: ${args.x},${args.y}</div>`
-            : ''
+        // let debug_info = DEV_MODE
+        //     ? `<div style="font-size: 0.8em">coord: ${args.x},${args.y}</div>`
+        //     : ''
 
-        this.elText.innerHTML = `#${this.color.rgbhex}<br/>rgb(${this.color.r},${this.color.g},${this.color.b})${debug_info}`
+		const dinamicInfo = `<div style="font-size: 0.8em">Scheme: ${ (this.colorTranslator.translateColor(this.color)) }</div>`;
+
+		let debug_info = DEV_MODE
+			? dinamicInfo
+			: ''
+
+		this.elText.innerHTML = `rgb(${this.color.r},${this.color.g},${this.color.b})${dinamicInfo}`
         this.elColor.style.backgroundColor = `#${this.color.rgbhex}`
     }
 }
+
+
 
 export default Overlay
